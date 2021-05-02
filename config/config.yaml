@@ -1,0 +1,56 @@
+pool:
+  minNum: 1
+  maxNum: 11
+  idleOpenNum: 1
+mount:
+  mountPoint: "/mnt/mm"
+  debug: true
+  allowOther: true
+  entryTimeout: 10
+  attrTimeout: 10
+  options: [ "rw" ]
+app:
+  #
+  maxNumCPU: 2
+log:
+  logName: "hdfs_mount.log"
+  logLevel: "info"
+  maxRemainNum: 100
+pprof:
+  enable: true
+  # http://ip:port/debug/pprof/
+  address: "0.0.0.0"
+  prot: 8080
+hdfs:
+  mountDir: "/"
+  #  namenode 地址
+  nnAddress: [ "aa:9000" ]
+  # hdfs 用户
+  user: root
+  encrypt:
+    enable: false
+    password: "1"
+    keyLen: 256
+  # 是否使用kerberos认证
+  kerberos:
+    enable: false
+    # krb5.conf 文件
+    krb5conf: "XX"
+    # 账号 使用keytab或账号密码登录时使用
+    userName: string
+    # 密码 使用账号密码登录时使用,配置了keytab,优先使用keytab
+    password: string
+    # "TEST.GOKRB5"
+    realm: string
+    # keytab
+    # keytab文件,优先使用文件
+    keytabFile: string
+    # 16进制的keytab字符串
+    keytabHex: string
+    # ccahe 登录,最后尝试使用ccahe登录
+    CCache: string
+customerNameServer:
+  enable: true
+  ns:
+    aa: "3.3.3.3"
+    cc: "1.1.1.1"
